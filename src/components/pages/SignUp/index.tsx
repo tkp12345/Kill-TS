@@ -4,7 +4,7 @@ import axios from 'axios';
 import React, { useCallback, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import useSWR from 'swr';
-import useInput from "../../../components/hooks/useInput";
+import useInput from "../../../hooks/useInput";
 import fetcher from "../../../utils/fetch";
 
 const SignUp = () => {
@@ -44,7 +44,9 @@ const SignUp = () => {
         setSignUpError(false);
         setSignUpSuccess(false);
         axios
-          .post('/api/users', { email, nickname, password })
+          .post('http://localhost:3095/api/users', { email, nickname, password },
+              {withCredentials:true},
+              )
           .then(() => {
             setSignUpSuccess(true);
           })

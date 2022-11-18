@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useCallback, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import {Button, Form, Header, Input, Label, LinkContainer} from "../../..//components/pages/SignUp/styles";
+import {Button, Form, Header, Input, Label, LinkContainer} from "../../../components/pages/SignUp/styles";
 import useSWR from "swr";
-import useInput from "../../../components/hooks/useInput";
+import useInput from "../../../hooks/useInput";
 import fetcher from "../../../utils/fetch";
 
 const LogIn = () => {
@@ -17,7 +17,7 @@ const LogIn = () => {
       setLogInError(false);
       axios
         .post(
-          '/api/users/login',
+          'http://localhost:3095/api/users/login',
           { email, password },
           {
             withCredentials: true,
