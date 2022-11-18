@@ -5,9 +5,10 @@ import React, { useCallback, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import useSWR from 'swr';
 import useInput from "../../../components/hooks/useInput";
+import fetcher from "../../../utils/fetch";
 
 const SignUp = () => {
-  // const { data: userData } = useSWR('/api/users', fetcher);
+  const { data: userData } = useSWR('/api/users', fetcher);
   const [signUpError, setSignUpError] = useState(false);
   const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [mismatchError, setMismatchError] = useState(false);

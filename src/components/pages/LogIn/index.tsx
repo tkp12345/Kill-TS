@@ -4,9 +4,10 @@ import { Redirect } from 'react-router-dom';
 import {Button, Form, Header, Input, Label, LinkContainer} from "../../..//components/pages/SignUp/styles";
 import useSWR from "swr";
 import useInput from "../../../components/hooks/useInput";
+import fetcher from "../../../utils/fetch";
 
 const LogIn = () => {
-  // const { data: userData, error, mutate } = useSWR('/api/users', fetcher);
+  const { data: userData, error, mutate } = useSWR('/api/users', fetcher);
   const [logInError, setLogInError] = useState(false);
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
